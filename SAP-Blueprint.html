@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Career Excellence & Leadership Blueprint - TCS Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 50%, #2a2a5e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(10px, 10px);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #00f5ff, #ff00d4, #00f5ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #00f5ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00f5ff, #ff00d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .career-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .career-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.2);
+        }
+
+        .career-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #00f5ff, #ff00d4);
+        }
+
+        .career-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00f5ff;
+        }
+
+        .salary-range {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .phase-container {
+            margin: 4rem 0;
+        }
+
+        .phase-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(45deg, #00f5ff, #ff00d4);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .phase-number {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 2rem;
+        }
+
+        .phase-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00f5ff;
+        }
+
+        .week-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00f5ff;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .week-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ff00d4;
+            margin-bottom: 1rem;
+        }
+
+        .outcomes-box {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 212, 0.1));
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .outcomes-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00f5ff;
+            margin-bottom: 1rem;
+        }
+
+        .certification-roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.2);
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .salary-progression {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .salary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .salary-item:hover {
+            background: rgba(0, 245, 255, 0.1);
+        }
+
+        .timeline-period {
+            font-weight: 600;
+            color: #00f5ff;
+        }
+
+        .salary-amount {
+            font-weight: 700;
+            color: #ff00d4;
+            font-size: 1.1rem;
+        }
+
+        .action-plan {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .week-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #ff00d4;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .checklist-item:hover {
+            background: rgba(0, 245, 255, 0.1);
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00f5ff;
+            border-radius: 4px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox.checked {
+            background: #00f5ff;
+            color: white;
+        }
+
+        .risk-mitigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .risk-card {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .risk-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+
+        .success-prediction {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 212, 0.1));
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .outcome-level {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .outcome-level:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #00f5ff, #ff00d4);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .nav-floating {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #00f5ff;
+            transform: scale(1.5);
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: rgba(0, 245, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .technologies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #00f5ff, #ff00d4);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .nav-floating {
+                display: none;
+            }
+
+            .career-paths {
+                grid-template-columns: 1fr;
+            }
+
+            .certification-roadmap {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .phase-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ul,
+        ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .info-box {
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <div class="nav-floating" id="navFloating">
+        <div class="nav-dot active" data-section="hero"></div>
+        <div class="nav-dot" data-section="understanding"></div>
+        <div class="nav-dot" data-section="phase1"></div>
+        <div class="nav-dot" data-section="phase2"></div>
+        <div class="nav-dot" data-section="phase3"></div>
+        <div class="nav-dot" data-section="phase4"></div>
+        <div class="nav-dot" data-section="phase5"></div>
+        <div class="nav-dot" data-section="phase6"></div>
+        <div class="nav-dot" data-section="phase7"></div>
+        <div class="nav-dot" data-section="phase8"></div>
+        <div class="nav-dot" data-section="salary"></div>
+        <div class="nav-dot" data-section="certifications"></div>
+        <div class="nav-dot" data-section="networking"></div>
+        <div class="nav-dot" data-section="metrics"></div>
+        <div class="nav-dot" data-section="risks"></div>
+        <div class="nav-dot" data-section="action"></div>
+        <div class="nav-dot" data-section="prediction"></div>
+    </div>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>SAP CAREER EXCELLENCE & LEADERSHIP BLUEPRINT</h1>
+            <p class="hero-subtitle">TCS EDITION</p>
+            <p class="hero-description">Complete Career Transformation & Industry Leadership Journey - From TCS
+                Associate to Industry Leader</p>
+            <button class="cta-button" onclick="scrollToSection('understanding')">Begin Your Transformation</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section" id="understanding">
+            <h2 class="section-title fade-in">Understanding SAP Career Paths at TCS</h2>
+
+            <div class="intro-stats fade-in">
+                <div class="stat-card">
+                    <div class="stat-number">21,200+</div>
+                    <p>SAP Practice Consultants Worldwide</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">550+</div>
+                    <p>Ongoing SAP Engagements</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <p>Main Career Tracks</p>
+                </div>
+            </div>
+
+            <div class="career-paths fade-in">
+                <div class="career-card">
+                    <h3>🔧 FUNCTIONAL CONSULTANT PATH</h3>
+                    <p><strong>Description:</strong> SAP functional consultants customize SAP software per client
+                        requests and work with developers to code custom ABAP programs.</p>
+                    <p><strong>Popular Modules:</strong> FICO, MM, SD, PP, HCM, QM</p>
+                    <p><strong>Career Progression:</strong> Associate → Senior → Principal → Solution Architect</p>
+                    <div class="salary-range">₹4-25 LPA</div>
+                </div>
+
+                <div class="career-card">
+                    <h3>💻 TECHNICAL CONSULTANT PATH</h3>
+                    <p><strong>Description:</strong> SAP technical consultants serve as advisors for software
+                        development and integrations, performing ABAP and Java coding.</p>
+                    <p><strong>Technologies:</strong> ABAP, Java, UI5, Fiori, BTP, Integration</p>
+                    <p><strong>Career Progression:</strong> Developer → Senior Developer → Technical Architect → CTO
+                        Track</p>
+                    <div class="salary-range">₹5-30 LPA</div>
+                </div>
+
+                <div class="career-card">
+                    <h3>⚡ TECHNO-FUNCTIONAL PATH (RECOMMENDED)</h3>
+                    <p><strong>Description:</strong> SAP consultants enjoy premium remuneration over IT counterparts,
+                        and top consultants conversant with technical and functional modules command huge influence.</p>
+                    <p><strong>Combination:</strong> Business knowledge + Technical skills</p>
+                    <p><strong>Career Progression:</strong> Fastest path to senior roles and highest compensation</p>
+                    <div class="salary-range">₹6-35+ LPA</div>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h3>🎯 Strategic Framework: The SAP Excellence Pyramid</h3>
+                <p>This blueprint follows the <strong>"Foundation-to-Leadership-to-Industry-Recognition Model"</strong>
+                    specifically designed for SAP professionals at TCS. TCS has 21,200+ SAP practice consultants
+                    worldwide delivering value to over 550 ongoing engagements, providing an excellent platform for
+                    career growth.</p>
+            </div>
+        </section>
+
+        <section class="section" id="phase1">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">1</div>
+                        <div class="phase-title">FOUNDATION BUILDING (Months 1-3)</div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">📚 Week 1-4: TCS Onboarding Excellence</div>
+                        <ul>
+                            <li><strong>Complete TCS Digital Skills Initiative:</strong> Free SAP certification through
+                                Digital Skills Initiative with access to practice systems</li>
+                            <li><strong>Understand TCS SAP Practice:</strong> Learn TCS Crystallus™ pre-configured
+                                industry assets and accelerators</li>
+                            <li><strong>Network Building:</strong> Connect with SAP Center of Excellence team</li>
+                            <li><strong>Performance Target:</strong> Score 95%+ in all onboarding assessments</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🎯 Week 5-8: SAP Fundamentals Mastery</div>
+                        <p><strong>Study Materials:</strong></p>
+                        <ul>
+                            <li>SAP GUI Navigation and Transaction Codes</li>
+                            <li>Enterprise Structure and Organizational Units</li>
+                            <li>Master Data concepts and Management</li>
+                            <li>Business Process Integration fundamentals</li>
+                        </ul>
+                        <p><strong>Practical Experience:</strong> 40+ hours hands-on practice in SAP sandbox</p>
+                        <p><strong>Documentation:</strong> Create personal SAP reference guide</p>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🚀 Week 9-12: Module Selection and Deep Dive</div>
+                        <p><strong>Choose Your Primary Track Based on:</strong></p>
+                        <ul>
+                            <li><strong>Background:</strong> Finance → FICO, Supply Chain → MM/PP, Sales → SD</li>
+                            <li><strong>Market Demand:</strong> Top certifications include FI R2R, CO R2R, MM P2P, SD
+                                O2C</li>
+                            <li><strong>Career Goals:</strong> Leadership → FICO/MM, Technical → ABAP/BTP</li>
+                        </ul>
+
+                        <div class="module-grid">
+                            <div class="module-card">
+                                <h4>💰 SAP FICO</h4>
+                                <p>Finance & Controlling</p>
+                                <small>Highest demand, best career progression</small>
+                            </div>
+                            <div class="module-card">
+                                <h4>📦 SAP MM</h4>
+                                <p>Materials Management</p>
+                                <small>Core module, excellent integration opportunities</small>
+                            </div>
+                            <div class="module-card">
+                                <h4>🛒 SAP SD</h4>
+                                <p>Sales & Distribution</p>
+                                <small>Business-critical, client-facing opportunities</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>Complete understanding of SAP ERP ecosystem</li>
+                            <li>Proficiency in SAP navigation and basic transactions</li>
+                            <li>Strong foundation in your assigned SAP module</li>
+                            <li>Positive performance reviews and team recognition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase2">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">2</div>
+                        <div class="phase-title">MODULE SPECIALIZATION (Months 4-9)</div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">📈 Months 4-6: Deep Module Learning</div>
+
+                        <div class="info-box">
+                            <h4>For FICO Track (Example):</h4>
+                            <p><strong>Financial Accounting (FI):</strong></p>
+                            <ul>
+                                <li>General Ledger Accounting</li>
+                                <li>Accounts Payable and Receivable</li>
+                                <li>Asset Accounting and Bank Accounting</li>
+                                <li>Integration with other modules</li>
+                            </ul>
+
+                            <p><strong>Controlling (CO):</strong></p>
+                            <ul>
+                                <li>Cost Center and Profit Center Accounting</li>
+                                <li>Product Costing and Profitability Analysis</li>
+                                <li>Internal Orders and Projects</li>
+                                <li>Integration with FI and logistics modules</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Learning Resources:</strong></p>
+                        <ul>
+                            <li>SAP Learning Hub subscription (₹15,000/year - worth the investment)</li>
+                            <li>OpenSAP platform courses (migrating to SAP Learning website)</li>
+                            <li>TCS internal training programs and mentorship</li>
+                            <li>Practice in SAP IDES system (available through TCS)</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🏆 Months 7-9: Certification Preparation and Achievement</div>
+
+                        <p><strong>Target Certification:</strong> SAP Certified Associate in your chosen module (FI, CO,
+                            MM, SD, etc.)</p>
+
+                        <div class="highlight-box">
+                            <h4>Preparation Strategy:</h4>
+                            <ul>
+                                <li><strong>Study Plan:</strong> 2-3 hours daily for 8-10 weeks</li>
+                                <li><strong>Practice Tests:</strong> Complete 5+ mock exams with 80%+ scores</li>
+                                <li><strong>Hands-on Practice:</strong> 100+ hours of configuration practice</li>
+                                <li><strong>Investment:</strong> ₹50,000-70,000 for certification (TCS may sponsor)</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box">
+                            <p><strong>Expected Outcome:</strong> Average salary increase of $14,175 after SAP
+                                certification, with ROI in 3 months</p>
+                        </div>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>SAP Certified Application Associate in chosen module</li>
+                            <li>Advanced configuration and customization skills</li>
+                            <li>Ability to handle complex business scenarios</li>
+                            <li>Recognition as module expert within team</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase3">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">3</div>
+                        <div class="phase-title">S/4HANA TRANSITION MASTERY (Months 10-15)</div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🎯 Why S/4HANA is Critical</h4>
+                        <p>TCS helps companies accelerate SAP S/4HANA implementation with migration recommendations and
+                            full spectrum support services</p>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🚀 Months 10-12: S/4HANA Fundamentals</div>
+
+                        <p><strong>Core Learning Areas:</strong></p>
+                        <ul>
+                            <li><strong>Simplification:</strong> Understanding simplified data models</li>
+                            <li><strong>Innovation:</strong> New functionalities and embedded analytics</li>
+                            <li><strong>Integration:</strong> Real-time processing and in-memory computing</li>
+                            <li><strong>User Experience:</strong> Fiori apps and role-based dashboards</li>
+                        </ul>
+
+                        <div class="technologies-list">
+                            <span class="tech-tag">SAP HANA Database</span>
+                            <span class="tech-tag">Fiori/UI5</span>
+                            <span class="tech-tag">SAP Analytics Cloud</span>
+                            <span class="tech-tag">Migration Approaches</span>
+                        </div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🏅 Months 13-15: S/4HANA Certification</div>
+
+                        <p><strong>Target:</strong> SAP S/4HANA certification in your domain (FI, MM, SD, etc.)</p>
+
+                        <div class="module-grid">
+                            <div class="module-card">
+                                <h4>💰 S/4HANA Financial Accounting</h4>
+                                <p>For FICO consultants</p>
+                            </div>
+                            <div class="module-card">
+                                <h4>🛒 S/4HANA Sourcing and Procurement</h4>
+                                <p>For MM consultants</p>
+                            </div>
+                            <div class="module-card">
+                                <h4>📊 S/4HANA Sales</h4>
+                                <p>For SD consultants</p>
+                            </div>
+                            <div class="module-card">
+                                <h4>🏭 S/4HANA Manufacturing</h4>
+                                <p>For PP consultants</p>
+                            </div>
+                        </div>
+
+                        <p><strong>Project Experience:</strong> Lead or participate in S/4HANA conversion project at TCS
+                        </p>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>SAP S/4HANA certification in your domain</li>
+                            <li>Understanding of digital transformation concepts</li>
+                            <li>Experience with cloud deployment models</li>
+                            <li>Advanced analytics and reporting capabilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase4">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">4</div>
+                        <div class="phase-title">CROSS-MODULE EXPERTISE (Months 16-18)</div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🔗 Integration Mastery</h4>
+                        <p>Having expertise in multiple domains is considered an asset as you grow professionally</p>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">📚 Month 16: Learn Complementary Module</div>
+                        <ul>
+                            <li><strong>If FICO → Learn MM:</strong> Understand Procurement-to-Pay process</li>
+                            <li><strong>If MM → Learn PP:</strong> Understand Manufacturing integration</li>
+                            <li><strong>If SD → Learn FICO:</strong> Understand Order-to-Cash revenue recognition</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🔄 Month 17: Business Process Integration</div>
+                        <ul>
+                            <li>End-to-End Process Flows (P2P, O2C, R2R)</li>
+                            <li>Inter-module data dependencies</li>
+                            <li>Integration testing and troubleshooting</li>
+                            <li>Custom development requirements (basic ABAP)</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🎯 Month 18: Advanced Integration Projects</div>
+                        <ul>
+                            <li>Lead complex integration workstreams</li>
+                            <li>Troubleshoot cross-module issues</li>
+                            <li>Design process optimization solutions</li>
+                            <li>Document best practices and lessons learned</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Common Integration Scenarios:</h4>
+                        <ul>
+                            <li>FI/CO + MM (Procurement to Pay)</li>
+                            <li>SD + MM + PP (Order to Cash + Manufacturing)</li>
+                            <li>HCM + FI (Payroll to Finance)</li>
+                            <li>All modules + BW/BI (Reporting & Analytics)</li>
+                            <li>SAP + Non-SAP integrations (Middleware)</li>
+                        </ul>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>Working knowledge of 2-3 additional SAP modules</li>
+                            <li>Strong understanding of inter-module integrations</li>
+                            <li>Ability to design end-to-end business processes</li>
+                            <li>Enhanced problem-solving across multiple domains</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase5">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">5</div>
+                        <div class="phase-title">LEADERSHIP DEVELOPMENT (Months 19-21)</div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">📋 Month 19: Project Management Certification</div>
+                        <ul>
+                            <li><strong>Target:</strong> PMP, PRINCE2, or Agile certification</li>
+                            <li><strong>SAP Methodology:</strong> Master SAP Activate methodology</li>
+                            <li><strong>Tools:</strong> Learn project management tools (MS Project, JIRA, etc.)</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">👥 Month 20: Team Leadership</div>
+                        <p><strong>Opportunity:</strong> Lead small team (3-5 consultants) on TCS project</p>
+                        <p><strong>Skills Development:</strong></p>
+                        <ul>
+                            <li>Resource planning and allocation</li>
+                            <li>Client communication and stakeholder management</li>
+                            <li>Risk management and issue resolution</li>
+                            <li>Quality assurance and deliverable review</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">💼 Month 21: Business Consulting Skills</div>
+                        <ul>
+                            <li><strong>Training:</strong> Business analysis and process optimization</li>
+                            <li><strong>Client Skills:</strong> Presentation and workshop facilitation</li>
+                            <li><strong>Change Management:</strong> User adoption and training strategies</li>
+                            <li><strong>Business Case Development:</strong> ROI analysis and cost-benefit studies</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🏢 TCS Leadership Opportunities:</h4>
+                        <ul>
+                            <li>TCS Leadership Accelerator Program</li>
+                            <li>Client-facing project leadership roles</li>
+                            <li>Internal SAP community leadership</li>
+                            <li>Training and knowledge transfer sessions</li>
+                            <li>Innovation and automation initiatives</li>
+                        </ul>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>Project management certification (PMP/PRINCE2)</li>
+                            <li>Experience leading small teams (3-5 people)</li>
+                            <li>Strong client-facing communication skills</li>
+                            <li>Ability to manage project timelines and budgets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase6">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">6</div>
+                        <div class="phase-title">INDUSTRY SPECIALIZATION (Months 22-24)</div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🎯 Choose Your Industry Vertical</h4>
+                        <p>TCS focuses on industries with rich contextual knowledge and digital platforms</p>
+                    </div>
+
+                    <div class="career-paths">
+                        <div class="career-card">
+                            <h3>🏭 Manufacturing</h3>
+                            <p>Automotive, Aerospace, Industrial Equipment</p>
+                        </div>
+                        <div class="career-card">
+                            <h3>🛍️ Retail & CPG</h3>
+                            <p>Consumer goods, Fashion, Food & Beverage</p>
+                        </div>
+                        <div class="career-card">
+                            <h3>🏦 BFSI</h3>
+                            <p>Banking, Financial Services, Insurance</p>
+                        </div>
+                        <div class="career-card">
+                            <h3>⚡ Energy & Utilities</h3>
+                            <p>Oil & Gas, Power Generation, Utilities</p>
+                        </div>
+                        <div class="career-card">
+                            <h3>🩺 Life Sciences</h3>
+                            <p>Pharmaceuticals, Healthcare, Medical Devices</p>
+                        </div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">📊 Month 22: Industry Deep Dive</div>
+                        <ul>
+                            <li>Study industry-specific business processes</li>
+                            <li>Learn regulatory requirements and compliance</li>
+                            <li>Understand industry trends and digital transformation drivers</li>
+                            <li>Network with industry practitioners and thought leaders</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🛠️ Month 23: Industry Solution Development</div>
+                        <ul>
+                            <li>Develop industry-specific SAP solution blueprints</li>
+                            <li>Create accelerators and templates for common industry scenarios</li>
+                            <li>Understand industry-specific SAP add-ons and partner solutions</li>
+                            <li>Work on industry-focused client engagements</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🎤 Month 24: Thought Leadership</div>
+                        <ul>
+                            <li>Write articles on industry SAP trends</li>
+                            <li>Speak at industry conferences and webinars</li>
+                            <li>Develop intellectual property and point-of-view documents</li>
+                            <li>Build reputation as industry SAP expert</li>
+                        </ul>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>Deep expertise in chosen industry vertical</li>
+                            <li>Business process optimization capabilities</li>
+                            <li>Strategic consulting and advisory skills</li>
+                            <li>Thought leadership in SAP and industry domain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase7">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">7</div>
+                        <div class="phase-title">INNOVATION & DIGITAL TECHNOLOGIES (Ongoing)</div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🔮 Current Focus (2024-2025):</div>
+                        <div class="technologies-list">
+                            <span class="tech-tag">SAP Business Technology Platform (BTP)</span>
+                            <span class="tech-tag">SAP Analytics Cloud (SAC)</span>
+                            <span class="tech-tag">SAP AI Foundation and Machine Learning</span>
+                            <span class="tech-tag">Process Automation and RPA</span>
+                            <span class="tech-tag">IoT integration with SAP</span>
+                        </div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🚀 Future Technologies (2025-2027):</div>
+                        <div class="technologies-list">
+                            <span class="tech-tag">Generative AI integration (SAP Joule)</span>
+                            <span class="tech-tag">Blockchain and cryptocurrency support</span>
+                            <span class="tech-tag">Quantum computing applications</span>
+                            <span class="tech-tag">Extended reality (AR/VR) in SAP</span>
+                            <span class="tech-tag">Edge computing and real-time processing</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🏢 TCS Innovation Focus:</h4>
+                        <ul>
+                            <li>TCS Crystallus™ AI-powered accelerators</li>
+                            <li>Machine Learning and Analytics solutions</li>
+                            <li>Blockchain integration with SAP</li>
+                            <li>IoT and Edge computing solutions</li>
+                            <li>Automation and cognitive services</li>
+                        </ul>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>Expertise in SAP BTP and cloud technologies</li>
+                            <li>AI/ML integration with SAP systems</li>
+                            <li>Automation and RPA capabilities</li>
+                            <li>Innovation leadership within organization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="phase8">
+            <div class="phase-container">
+                <div class="phase-card fade-in">
+                    <div class="phase-header">
+                        <div class="phase-number">8</div>
+                        <div class="phase-title">CAREER ADVANCEMENT & EXTERNAL RECOGNITION (Years 2-5)</div>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🌟 External Networking and Thought Leadership:</div>
+                        <ul>
+                            <li>Pursue advanced SAP certifications and specializations</li>
+                            <li>Build strong LinkedIn presence and thought leadership</li>
+                            <li>Speak at SAP conferences and industry events</li>
+                            <li>Mentor and develop junior team members</li>
+                            <li>Explore MBA or advanced business education</li>
+                            <li>Consider entrepreneurship or consulting practice</li>
+                            <li>Evaluate opportunities at SAP or other tech giants</li>
+                        </ul>
+                    </div>
+
+                    <div class="week-item">
+                        <div class="week-title">🏢 TCS Career Progression:</div>
+                        <ul>
+                            <li>Assistant Consultant → Associate Consultant → Consultant</li>
+                            <li>Senior Consultant → Principal Consultant → Architect</li>
+                            <li>Delivery Manager → Program Manager → Practice Head</li>
+                            <li>Business Development and Sales roles</li>
+                            <li>Innovation and R&D leadership positions</li>
+                        </ul>
+                    </div>
+
+                    <div class="outcomes-box">
+                        <div class="outcomes-title">Expected Outcomes:</div>
+                        <ul>
+                            <li>Senior Manager/Principal Consultant level at TCS</li>
+                            <li>Industry recognition and speaking opportunities</li>
+                            <li>Strong professional network and mentorship role</li>
+                            <li>Options for career advancement or entrepreneurship</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="salary">
+            <h2 class="section-title fade-in">Salary Progression Expectations</h2>
+
+            <div class="salary-progression fade-in">
+                <h3 style="color: #00f5ff; margin-bottom: 2rem;">💰 At TCS (Based on Performance and Certifications)
+                </h3>
+                <div class="salary-item">
+                    <span class="timeline-period">Months 1-6:</span>
+                    <span class="salary-amount">₹4-6 LPA (Associate Consultant)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Months 7-12:</span>
+                    <span class="salary-amount">₹6-9 LPA (Consultant with certification)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Months 13-18:</span>
+                    <span class="salary-amount">₹9-14 LPA (Senior Consultant with S/4HANA)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Months 19-24:</span>
+                    <span class="salary-amount">₹14-20 LPA (Principal Consultant/Team Lead)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Year 3:</span>
+                    <span class="salary-amount">₹20-28 LPA (Solution Architect/Delivery Manager)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Year 4-5:</span>
+                    <span class="salary-amount">₹28-40+ LPA (Practice Lead/Industry Expert)</span>
+                </div>
+            </div>
+
+            <div class="salary-progression fade-in">
+                <h3 style="color: #ff00d4; margin-bottom: 2rem;">🚀 Market Opportunities (After 2-3 Years)</h3>
+                <div class="salary-item">
+                    <span class="timeline-period">SAP SE:</span>
+                    <span class="salary-amount">₹25-45 LPA (Solutions Engineer/Consultant)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Accenture/Deloitte:</span>
+                    <span class="salary-amount">₹22-38 LPA (Senior Manager/Principal)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Implementation Partners:</span>
+                    <span class="salary-amount">₹20-35 LPA (Practice Lead)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">End Clients:</span>
+                    <span class="salary-amount">₹18-30 LPA (SAP Manager/Director)</span>
+                </div>
+                <div class="salary-item">
+                    <span class="timeline-period">Freelance Consulting:</span>
+                    <span class="salary-amount">₹2,000-8,000 per day</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="certifications">
+            <h2 class="section-title fade-in">Certification Roadmap</h2>
+
+            <div class="certification-roadmap fade-in">
+                <div class="cert-card">
+                    <h3>📚 Year 1: Foundation Certifications</h3>
+                    <ol>
+                        <li><strong>SAP Certified Associate</strong> - Your primary module <span
+                                class="price-tag">₹50,000</span></li>
+                        <li><strong>SAP S/4HANA Associate</strong> - Same module on S/4HANA <span
+                                class="price-tag">₹50,000</span></li>
+                    </ol>
+                </div>
+
+                <div class="cert-card">
+                    <h3>🎯 Year 2: Specialization Certifications</h3>
+                    <ol start="3">
+                        <li><strong>SAP Certified Professional</strong> - Advanced level in your module <span
+                                class="price-tag">₹65,000</span></li>
+                        <li><strong>SAP BTP Associate</strong> - Business Technology Platform <span
+                                class="price-tag">₹50,000</span></li>
+                    </ol>
+                </div>
+
+                <div class="cert-card">
+                    <h3>👑 Year 3: Leadership Certifications</h3>
+                    <ol start="5">
+                        <li><strong>Project Management</strong> - PMP or PRINCE2 <span class="price-tag">₹40,000</span>
+                        </li>
+                        <li><strong>Industry Certification</strong> - Industry-specific SAP certification <span
+                                class="price-tag">₹55,000</span></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h3>💡 Investment and ROI</h3>
+                <p><strong>Total Investment:</strong> ₹3,10,000 over 3 years</p>
+                <p><strong>Expected ROI:</strong> 300-500% salary increase, making this highly profitable</p>
+            </div>
+        </section>
+
+        <section class="section" id="networking">
+            <h2 class="section-title fade-in">Networking and Community Engagement</h2>
+
+            <div class="career-paths fade-in">
+                <div class="career-card">
+                    <h3>🏢 Internal TCS Networks</h3>
+                    <ul>
+                        <li><strong>TCS SAP Community:</strong> Join internal SAP groups and forums</li>
+                        <li><strong>Innovation Communities:</strong> Participate in TCS innovation challenges</li>
+                        <li><strong>Mentorship Programs:</strong> Both seek mentors and mentor junior colleagues</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h3>🌐 External SAP Community</h3>
+                    <ul>
+                        <li><strong>SAP Community:</strong> Active participation in SAP Community discussions and blogs
+                        </li>
+                        <li><strong>LinkedIn SAP Groups:</strong> Build professional network and thought leadership</li>
+                        <li><strong>SAP User Groups:</strong> Join local SAP user groups and conferences</li>
+                        <li><strong>DSAG/ASUG:</strong> Participate in SAP user association events</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h3>🎤 Thought Leadership</h3>
+                    <ul>
+                        <li><strong>Blogging:</strong> Write 1-2 technical/business articles per month</li>
+                        <li><strong>Speaking:</strong> Present at internal TCS events and external conferences</li>
+                        <li><strong>Innovation:</strong> Lead POCs with emerging SAP technologies</li>
+                        <li><strong>Mentoring:</strong> Guide newcomers and junior consultants</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="metrics">
+            <h2 class="section-title fade-in">Success Metrics and Milestones</h2>
+
+            <div class="career-paths fade-in">
+                <div class="career-card">
+                    <h3>📊 6-Month Milestones</h3>
+                    <ul>
+                        <li>✅ First SAP certification achieved</li>
+                        <li>✅ Positive performance review at TCS</li>
+                        <li>✅ Leading small project workstreams</li>
+                        <li>✅ Building internal and external network</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h3>🎯 12-Month Milestones</h3>
+                    <ul>
+                        <li>✅ S/4HANA certification completed</li>
+                        <li>✅ Promotion to Senior Consultant level</li>
+                        <li>✅ Client-facing presentation experience</li>
+                        <li>✅ Mentoring 2-3 junior colleagues</li>
+                    </ul>
+                </div>
+
+                <div class="career-card">
+                    <h3>🚀 24-Month Milestones</h3>
+                    <ul>
+                        <li>✅ Multi-module expertise demonstrated</li>
+                        <li>✅ Project leadership role secured</li>
+                        <li>✅ Industry specialization established</li>
+                        <li>✅ Speaking at external events</li>
+                        <li>✅ Salary doubled from starting level</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="risks">
+            <h2 class="section-title fade-in">Risk Mitigation Strategies</h2>
+
+            <div class="risk-mitigation fade-in">
+                <div class="risk-card">
+                    <h3>⚠️ Career Risk Management</h3>
+                    <ol>
+                        <li><strong>Technology Obsolescence:</strong> Stay current with S/4HANA and cloud trends</li>
+                        <li><strong>Economic Downturns:</strong> Diversify skills across industries and technologies
+                        </li>
+                        <li><strong>Automation Impact:</strong> Focus on strategic and advisory roles, not just
+                            configuration</li>
+                        <li><strong>Market Saturation:</strong> Develop unique specializations and thought leadership
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="risk-card">
+                    <h3>📈 Continuous Learning Plan</h3>
+                    <ul>
+                        <li><strong>Monthly:</strong> Complete 1 new SAP learning module</li>
+                        <li><strong>Quarterly:</strong> Attend 1 major SAP conference or training</li>
+                        <li><strong>Annually:</strong> Achieve 1 new certification or significant skill</li>
+                        <li><strong>Ongoing:</strong> Read SAP blogs, participate in community discussions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="action">
+            <h2 class="section-title fade-in">Immediate Action Plan (Next 30 Days)</h2>
+
+            <div class="action-plan fade-in">
+                <div class="week-section">
+                    <h3>🏃‍♂️ Week 1: Foundation Setup</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 8-10:</strong> Set up SAP Learning Hub subscription</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 11-12:</strong> Join SAP Community and TCS internal networks</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 13-14:</strong> Create study schedule and learning environment</span>
+                    </div>
+                </div>
+
+                <div class="week-section">
+                    <h3>📚 Week 3: Skill Building</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 15-17:</strong> Complete SAP navigation and basics training</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 18-19:</strong> Start module-specific learning journey</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 20-21:</strong> Begin hands-on practice in SAP system</span>
+                    </div>
+                </div>
+
+                <div class="week-section">
+                    <h3>🤝 Week 4: Network and Plan</h3>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 22-24:</strong> Connect with senior SAP consultants at TCS</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 25-26:</strong> Research certification requirements and timeline</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <span><strong>Day 27-30:</strong> Create detailed 6-month learning and certification plan</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="prediction">
+            <h2 class="section-title fade-in">Final Success Prediction</h2>
+
+            <div class="success-prediction fade-in">
+                <p style="font-size: 1.3rem; margin-bottom: 3rem; color: #00f5ff;">Following this blueprint with 80%+
+                    adherence will result in:</p>
+
+                <div class="outcome-level">
+                    <h3 style="color: #00ff00;">✅ GUARANTEED OUTCOMES (2 years)</h3>
+                    <ul>
+                        <li>Senior Consultant level at TCS or equivalent elsewhere</li>
+                        <li>3-4 SAP certifications including S/4HANA</li>
+                        <li>100%+ salary increase from starting level</li>
+                        <li>Strong professional network in SAP ecosystem</li>
+                        <li>Project leadership and client management experience</li>
+                    </ul>
+                </div>
+
+                <div class="outcome-level">
+                    <h3 style="color: #ff6b6b;">🚀 LIKELY OUTCOMES (3 years)</h3>
+                    <ul>
+                        <li>Principal Consultant or Solution Architect role</li>
+                        <li>Industry recognition and speaking opportunities</li>
+                        <li>Multiple job offers from top SAP partners</li>
+                        <li>200-300% salary increase from starting level</li>
+                        <li>Thought leadership in chosen industry vertical</li>
+                    </ul>
+                </div>
+
+                <div class="outcome-level">
+                    <h3 style="color: #ff00d4;">💫 POSSIBLE OUTCOMES (5 years)</h3>
+                    <ul>
+                        <li>Practice leadership or entrepreneurship opportunities</li>
+                        <li>Global SAP project leadership roles</li>
+                        <li>Industry expert status with premium consulting rates</li>
+                        <li>Options to join SAP SE or start own consulting practice</li>
+                        <li>400-500% salary increase with unlimited earning potential</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in" style="text-align: center; margin-top: 3rem;">
+                <h2 style="color: #00f5ff; margin-bottom: 2rem;">🎯 CONCLUSION</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Success in SAP is not just about technical knowledge
+                    - it's about solving business problems, delivering value to clients, and continuously evolving with
+                    technology. TCS provides the perfect platform to launch this journey with global exposure and
+                    diverse project opportunities.</p>
+
+                <div
+                    style="background: linear-gradient(45deg, #00f5ff, #ff00d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 2rem; font-weight: 800; margin: 2rem 0;">
+                    Your journey from TCS Associate to SAP Industry Leader begins today! 🚀
+                </div>
+
+                <p style="font-size: 1.1rem; opacity: 0.9;">
+                    <strong>Remember:</strong> SAP ERP consulting offers endless opportunities to travel, meet new
+                    clients, implement projects across industries, and exponentially rise your career graph with each
+                    new project. With dedication, continuous learning, and strategic career planning, you can achieve
+                    remarkable success in the SAP ecosystem.
+                </p>
+
+                <div
+                    style="margin-top: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px;">
+                    <p style="font-size: 1.3rem; font-weight: 700; color: #ff6b6b;">
+                        The key is to start immediately, stay consistent, and always focus on delivering value to your
+                        clients and organization. Your SAP career transformation starts NOW!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation dots functionality
+        const navDots = document.querySelectorAll('.nav-dot');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionId = dot.getAttribute('data-section');
+                scrollToSection(sectionId);
+            });
+        });
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Checklist toggle functionality
+        function toggleCheck(item) {
+            const checkbox = item.querySelector('.checkbox');
+            checkbox.classList.toggle('checked');
+            if (checkbox.classList.contains('checked')) {
+                checkbox.innerHTML = '✓';
+            } else {
+                checkbox.innerHTML = '';
+            }
+        }
+
+        // Add some dynamic elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add floating animation to career cards
+            const careerCards = document.querySelectorAll('.career-card');
+            careerCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+
+        // Add particle effect to hero section
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '2px';
+            particle.style.height = '2px';
+            particle.style.background = 'rgba(0, 245, 255, 0.7)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.pointerEvents = 'none';
+            particle.style.animation = 'floatUp 4s linear forwards';
+
+            document.querySelector('.hero').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 4000);
+        }
+
+        // Add CSS for particle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) scale(0);
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                100% {
+                    transform: translateY(-100vh) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add hover effects to phase cards
+        const phaseCards = document.querySelectorAll('.phase-card');
+        phaseCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.02)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+
+</html>
